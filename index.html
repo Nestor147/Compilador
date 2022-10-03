@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>C.U.P.I</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+
+    <body>
+        <div class="container-principal">
+            <div class="title2"><h1>Aprende a programar con C.U.P.I</h1></div>
+            <div class="contenedor">
+                <div>
+                    <h2 class="caja">Mostrar cinco + ocho<br>NO OLVIDES TERMINAR CON UN ";"</h2>
+                    <br>
+                    <div id="board"></div>
+                        <h2 class="movimientos">Movimientos: <span id="turns">0</span></h2>
+                </div>
+                <div class="container-camara">
+                    <img src="./images/logo2.png" alt="" class="camara">
+                    <h2>Espacio para la camara</h2>
+                </div>
+                <div class="container">
+                    <div >
+                        <h1 class="title">Analizador Lexico</h1>
+                        <input class="valores" type="text" placeholder="ingresa valores para analizar">
+                    </div>
+                    <button id="analizar" onclick="verificar()">Analizar Tokens</button>
+                    <div class="contenedor-palabras">
+                        <p id="palabras"></p>
+                        <p id="numeros"></p>
+                        <p id="operadores"></p>
+                        <p id="palabrasDiferentes"></p>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <div id="pieces"></div>
+            </div>
+        </div>
+        <script src="./index.js"></script>
+    </body>
+</html>
