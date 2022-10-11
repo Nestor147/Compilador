@@ -4,65 +4,38 @@ const pala = document.querySelector("#palabras")
 const nume = document.querySelector("#numeros")
 const opera=document.querySelector("#operadores")
 const palabrasDiferentes =document.querySelector("#palabrasDiferentes")
-
-var imagen1 = "hppt://http://127.0.0.1:5501/image/1.jpg"
-var imagen2="mundo"
-var imagen3 =1
-var imagen4="+"
-var imagen5=2
-var imagen6=3
-var imagen7=4
-var imagen8="-"
-var imagen9="vaca"
-var imagen10="gato"
-var imagen11=";"
-var imagen12="="
-var imagen13=7
-var imagen14="mostra"
-
-var palabrasReservadas={
-    palabras:["mostrar","si","si-no","mientras","funcion","para","i","j"],
-    numeros:[1,2,3,4,5,6,7,8,9,0],
-    operadores:["+","-","*","/","<",">","=","<=",">=","==","(",")"],
-    terminadores:[imagen11]
-}
-var palabras = 0;
-var numeros=-1;
-var operadores=0;
-var terminadores=0;
-var otrasPalbras=-1;
+const btntestear = document.querySelector("#testear")
 //------------------------------------------------------
+//para el reconocimiento mediante palabras---
 
 var rows = 5;
 var columns = 1;
 var currTile;
 var otherTile;
 var turns = 0;
-var listasImagenes =[]
+//-----------------------------------------------------------------
+//para el reconocimiento de imagenes
 
-//document.getElementById().addEventListener("click",detectar)
 
-// function detectar(){
-//     console.log("cargar imagen")
-// }
+var mensaje=["Mostrar 5 + 8","si 5 mayor 9","mostar perro * 8","mostrar gato + carro"]
+var posicion=0
+
 var variable=0
-
+var variable2=9
+var tile;
+var imagenBlanco="./images/blank.jpg";
+  
 window.onload = function() {
     //initialize the 5x5 board
-    imagenBlanco="./images/blank.jpg";
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
             //<img>
-            let tile = document.createElement("img");
-            
+            tile = document.createElement("img");
             tile.src = imagenBlanco
             variable+=1
             tile.id=variable
-            // if ((tile.src.target)===(imagen1.target)){
-            //     console.log(`la imagen ya no es blanca${tile.src}`)
-            // }else{
-            //     console.log("imagen igual")
-            // }
+            console.log(`el id es ${variable}`)
+            
 
             //funcionalidad de arrastre
             tile.addEventListener("dragstart", dragStart); //click en la imagen para arrastrar
@@ -89,11 +62,12 @@ window.onload = function() {
         pieces[i] = pieces[j];
         pieces[j] = tmp;
     }
+
     for (i in pieces) {
+        variable2++
         let tile = document.createElement("img");
         tile.src = "./image/" + pieces[i] + ".jpg";
-        let guardar = tile.src
-        listasImagenes.push(guardar)
+        tile.id=variable2
         //console.log("cargar  ",guardar)
 //--------------
 
@@ -109,6 +83,130 @@ window.onload = function() {
 
     }
 }
+
+function testear(){
+    console.log(mensaje[posicion])
+    posicion++
+    
+    //revisar la ruta que usara la imagen para poder ser monitoreada si sucede algun evento
+    //http://127.0.0.1:5500/image/12.jpg
+    function contarValores(valor){
+        var imagen1="http://127.0.0.1:5500/puzzle-2/image/1.jpg"
+        var imagen2="http://127.0.0.1:5500/puzzle-2/image/2.jpg"
+        var imagen3="http://127.0.0.1:5500/puzzle-2/image/3.jpg"
+        var imagen4="http://127.0.0.1:5500/puzzle-2/image/4.jpg"
+        var imagen5="http://127.0.0.1:5500/puzzle-2/image/5.jpg"
+        var imagen6="http://127.0.0.1:5500/puzzle-2/image/6.jpg"
+        var imagen7="http://127.0.0.1:5500/puzzle-2/image/7.jpg"
+        var imagen8="http://127.0.0.1:5500/puzzle-2/image/8.jpg"
+        var imagen9="http://127.0.0.1:5500/puzzle-2/image/9.jpg"
+        var imagen10="http://127.0.0.1:5500/puzzle-2/image/10.jpg"
+        var imagen11="http://127.0.0.1:5500/puzzle-2/image/11.jpg"
+        var imagen12="http://127.0.0.1:5500/puzzle-2/image/12.jpg"
+        var imagen13="http://127.0.0.1:5500/puzzle-2/image/13.jpg"
+        var imagen14="http://127.0.0.1:5500/puzzle-2/image/14.jpg"
+        var imagen15="http://127.0.0.1:5500/puzzle-2/image/15.jpg"
+        var imagen16="http://127.0.0.1:5500/puzzle-2/image/16.jpg"
+        var imagen17="http://127.0.0.1:5500/puzzle-2/image/17.jpg"
+        var imagen18="http://127.0.0.1:5500/puzzle-2/image/18.jpg"
+        var imagen19="http://127.0.0.1:5500/puzzle-2/image/19.jpg"
+        var imagen20="http://127.0.0.1:5500/puzzle-2/image/20.jpg"
+        var imagen21="http://127.0.0.1:5500/puzzle-2/image/21.jpg"
+        var imagen22="http://127.0.0.1:5500/puzzle-2/image/22.jpg"
+        var imagen23="http://127.0.0.1:5500/puzzle-2/image/23.jpg"
+        var imagen24="http://127.0.0.1:5500/puzzle-2/image/24.jpg"
+        var imagen25="http://127.0.0.1:5500/puzzle-2/image/25.jpg"
+        var imagen26="http://127.0.0.1:5500/puzzle-2/image/26.jpg"
+        var imagen27="http://127.0.0.1:5500/puzzle-2/image/27.jpg"
+        var imagen28="http://127.0.0.1:5500/puzzle-2/image/28.jpg"
+        var imagen29="http://127.0.0.1:5500/puzzle-2/image/29.jpg"
+        var imagen30="http://127.0.0.1:5500/puzzle-2/image/30.jpg"
+        var imagen31="http://127.0.0.1:5500/puzzle-2/image/31.jpg"
+        var imagen32="http://127.0.0.1:5500/puzzle-2/image/32.jpg"
+        var imagen33="http://127.0.0.1:5500/puzzle-2/image/33.jpg"
+        var imagen34="http://127.0.0.1:5500/puzzle-2/image/34.jpg"
+        var imagen35="http://127.0.0.1:5500/puzzle-2/image/35.jpg"
+    
+        var casilla1 =document.getElementById("1")
+        var casilla2 =document.getElementById("2")
+        var casilla3 =document.getElementById("3")
+        var casilla4 =document.getElementById("4")
+        var casilla5 =document.getElementById("5")
+        var valor1 =casilla1.src
+        var valor2 =casilla2.src
+        var valor3 =casilla3.src
+        var valor4 =casilla4.src
+        var valor5 =casilla5.src
+    
+    
+        var tokenNumeros =[imagen1,imagen2,imagen3,imagen4,imagen5,imagen6,imagen7,imagen8,imagen9,imagen10]
+        var tokenOperadores =[imagen11,imagen12,imagen13,imagen14,imagen15]
+        var tokenPalabrasReservadas=[imagen16,imagen17,imagen18,imagen19,imagen20,imagen21,imagen22]
+        var tokenSustantivos =[imagen23,imagen24,imagen25,imagen26,imagen27,imagen28,imagen29,imagen30,imagen31,imagen32,imagen33,imagen34,imagen35]
+
+    
+        var lista =[valor1,valor2,valor3,valor4,valor5]
+    
+        for (let i=0;i<15;i++){
+            if (valor==tokenNumeros[i]){
+                contadorNumeros++
+            }else if(valor==tokenOperadores[i]){
+                contadorOperadores++
+            }else if(valor==tokenPalabrasReservadas[i]){
+                contadorPalabrasReservadas++
+            }else if(valor==tokenSustantivos[i]){
+                contadorSustantivos++
+            }else{
+                console.log("la imagen es blanca")
+            }
+        }
+
+
+    }
+    var contadorNumeros=0
+    var contadorOperadores=0
+    var contadorPalabrasReservadas=0
+    var contadorSustantivos=0
+    var casilla1 =document.getElementById("1")
+    var casilla2 =document.getElementById("2")
+    var casilla3 =document.getElementById("3")
+    var casilla4 =document.getElementById("4")
+    var casilla5 =document.getElementById("5")
+    var valor1 =casilla1.src
+    var valor2 =casilla2.src
+    var valor3 =casilla3.src
+    var valor4 =casilla4.src
+    var valor5 =casilla5.src
+
+    var lista =[valor1,valor2,valor3,valor4,valor5]
+    for(i of lista){
+        contarValores(i)
+    }
+
+    console.log(`Cantidad de numeros ${contadorNumeros}`)
+    console.log(`Cantidad de operadores ${contadorOperadores}`)
+    console.log(`Cantidad de Palabras Reservadas ${contadorPalabrasReservadas}`)
+    console.log(`Cantidad de Sustantivos ${contadorSustantivos}`)
+    document.getElementById("numeros").innerText=contadorNumeros
+    document.getElementById("operadores").innerText=contadorOperadores
+    document.getElementById("palReservadas").innerText=contadorPalabrasReservadas
+    document.getElementById("Sustantivos").innerText=contadorSustantivos
+    document.getElementById("caja").innerText= mensaje[posicion]
+
+   
+}
+
+
+//limpiar pantalla
+
+function Limpiar(){
+    document.getElementById("1").src=imagenBlanco
+    document.getElementById("2").src=imagenBlanco
+    document.getElementById("3").src=imagenBlanco
+    document.getElementById("4").src=imagenBlanco
+    document.getElementById("5").src=imagenBlanco
+}
+
 
 //arrastrar imagenes
 function dragStart() {
@@ -143,63 +241,4 @@ function dragEnd() {
     turns += 1;
     document.getElementById("turns").innerText = turns;
 }
-function verificar(){
-    var lista = input.value.split(" ")
-    console.log(lista)
-    for(i in palabrasReservadas.palabras){
-        for(j in lista){
-                //console.log(palabrasReservadas.palabras[i])
-            if(lista[j]==palabrasReservadas.palabras[i]){
-                palabras+=1; }
-        }
-    }
-    for(i in palabrasReservadas.numeros){
-        for(j in lista){
-            if(lista[j]==palabrasReservadas.numeros[i]){
-                numeros+=1  
-            }
-        }
-    }
-    
-    for(i in palabrasReservadas.operadores){
-        for(j in lista){
-            if(lista[j]==palabrasReservadas.operadores[i]){
-                operadores+=1}
-        }
-    }
-    for (i in lista){
-        if(lista[i]==palabrasReservadas.operadores[i] || lista[i]==palabrasReservadas.palabras[i] || lista[i]==palabrasReservadas.numeros[i]){
-            console.log("Funciono siuuuuuuu")
-        }else{
-            otrasPalbras+=1
-        }
-    }
-    let conprobarUltimoElemento=[...lista].pop()
-    if(conprobarUltimoElemento==palabrasReservadas.terminadores[0]){
-        alert("la terminacion es correcta")
-    }
-    else{
-        alert("la terminacion es incorrecta")
-    }
-
-    console.log(palabras)
-    console.log(numeros)
-    console.log(operadores)
-    console.log(otrasPalbras)
-    console.log(otrasPalbras)
-    pala.innerHTML=`Token palabras --> ${palabras}`
-    nume.innerHTML=`Token numeros --> ${numeros}`
-    opera.innerHTML=`Token operadores --> ${operadores}`
-    palabrasDiferentes.innerHTML=`Token otros --> ${otrasPalbras}`
-    
-    return palabras, numeros, operadores
-
-}
-verificar()
-// let imagen1 = listasImagenes[1]
-// console.log(imagen1)
-// // for (i of listasImagenes){
-// // }
-
-console.log("imagenes ",listasImagenes)
 
